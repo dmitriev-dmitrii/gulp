@@ -1,0 +1,16 @@
+.button
+{
+	transition: all 0.3s linear;
+	cursor: pointer;
+}
+
+.button.active
+{
+
+	box-shadow:0 0 3px 1px  ;
+}
+.button:disabled
+{
+// background-color: $mainBgColor;
+cursor: not-allowed;
+}

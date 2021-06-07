@@ -1,0 +1,124 @@
+
+
+@mixin font($url, $family, $weight, $style) {
+	@font-face {
+		font-display: swap;
+		font-family: $family;
+		font-style: #{$style};
+		font-weight: $weight;
+		src: url("../fonts/#{$url}.woff2") format("woff2"), url("../fonts/#{$url}.woff") format("woff");
+	}
+}
+
+@import "global/fonts.scss";
+
+$bodyColor: #ffff;
+
+$mainTxtColor: #444;
+$minorTxtColor: #7676b3;
+
+$titleTxtColor: #222;
+
+$mainAccentColor: #f77600;
+
+$minorAccentColor: #999;
+
+$borderRadius: 5px;
+
+$transitionTime: 0.2s;
+
+* {
+	box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}
+
+body {
+	background-color: $bodyColor;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 62.5%;
+	font-weight: 300;
+	line-height: 1;
+	scroll-behavior: smooth;
+}
+
+.contanier {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 0.5rem;
+}
+
+
+button[disabled],
+ {
+	background-color: $minorAccentColor !important;
+	color: $mainTxtColor;
+	opacity: 0.5 !important;
+	cursor: default !important;
+	border: 1px solid !important;
+
+	&:hover,
+	&:active,
+	&:focus {
+
+		background-color: $minorAccentColor !important;
+		color: $mainTxtColor !important;
+		opacity: 0.5 !important;
+		cursor: default !important;
+		box-shadow: 0 0 0 0 transparent !important;
+
+	}
+	&::before
+	{
+	opacity: 0.5 !important;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+	font-weight: inherit;
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+p {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+
+	color: inherit;
+	text-decoration: none;
+	&:visited {
+	color: inherit;
+	}
+	
+}
+
+
+
+
+
+
+@import "components/header.scss";
+
+@import "components/footer.scss";
+
+
+@import "pages/example/example.scss";
