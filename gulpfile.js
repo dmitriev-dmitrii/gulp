@@ -60,7 +60,6 @@ const buildCss = () => {
         outputStyle: 'expanded'
     }))
     .pipe(autoprefixer({
-        overrideBrowserslist: 'last 8 versions'
     }))
     .pipe(removeComments({
         preserve: false,
@@ -74,28 +73,24 @@ const buildCss = () => {
 
 const sprite = () => {
 
-    return src('src/img/spriteSVG/*.svg')
+    return src('src/img/svg/*.svg')
+
     .pipe(svgSprite({
         mode: {
             stack: {
                 sprite: '../sprite.svg'
+                
             },
         }
     }))
-    .pipe(dest('app/img/spriteSVG'))
+    .pipe(dest('app/img/svg'))
 }
+
+
 const buildSprite = () => {
 
-    return src('src/img/spriteSVG/*.svg')
-    .pipe(svgSprite({
-        mode: {
-            stack: {
-                sprite: '../sprite.svg'
-            },
-        }
-    }))
-    .pipe(dest('public/img/spriteSVG'))
 }
+
 // минификаия картинок
 
 const imagesCompress = () => {
@@ -112,11 +107,10 @@ const buldimages= () => {
     .pipe(dest('public/img'))
 }
 
+
+
 // Работа с шрифтами
 
-const  delFolder = async () => {
-    del.sync('app/fonts')
-}
 
 const fonts = async () => {
 
@@ -182,8 +176,72 @@ const fonts = async () => {
     });
 }
 
-// Перемещение и работа js файлов
 
+const buildFonts = async () => {
+
+    del.sync('public/fonts');
+
+    const srcFonts = 'src/fonts/';
+    const generateScssFonts = 'src/scss/global/_fonts.scss';
+
+    // форматирование в woff
+    src('src/fonts/**/*.ttf')
+    .pipe(ttf2woff())
+    .pipe(dest('public/fonts'));
+
+    // форматирование в woff2
+    src('src/fonts/**/*.ttf')
+    .pipe(ttf2woff2())
+    .pipe(dest('public/fonts'));
+
+    // просто копирует
+    
+    src('src/fonts/**/*.woff2')
+    .pipe(dest('public/fonts'));
+    // просто копирует
+
+    src('src/fonts/**/*.woff')
+    .pipe(dest('public/fonts'));
+
+    // добавление шрифтов в fonts.scss
+
+    const checkWeight = {
+        black: 900,
+        extrabold: 800,
+        bold: 700,
+        semibold: 600,
+        medium: 500,
+        regular: 400,
+        light: 300,
+        thin: 100
+    }
+
+    fs.writeFile(generateScssFonts, "",()=>{});
+
+    fs.readdir(srcFonts,(err,items) =>{
+        items.forEach((item)=>{
+            const font_url = item.split('.')[0];
+            const font_name = item.split('-')[0];
+            let font_weight  = item.split('-')[1].split('.')[0].toLowerCase();
+            let font_style  = item.split('-')[1].split('.')[0].toLowerCase();
+            if (font_weight.includes('italic')) {
+                font_weight = font_weight.split('italic')[0];
+            }
+            if (font_weight === '') {
+                font_weight = 'regular';
+            }
+            if (font_style.includes('italic')) {
+                font_style = 'italic';
+            }
+            else {
+                font_style = 'normal';
+            }
+            fs.appendFileSync(generateScssFonts, `@include font("${font_url}","${font_name}", ${checkWeight[font_weight]}, "${font_style}"); \n`);
+        });
+    });
+}
+
+// Перемещение и работа js файлов
 
 
 const translateJs = () => {
@@ -210,7 +268,6 @@ const buildJs = () => {
 
 
 
-
 // Сервер и Отслеживание в изменениях файлов
 
 const watcher = () => {
@@ -231,19 +288,21 @@ const cleanPublic = () => {
     return del('public/**');
 
 }
+const cleanApp = () => {
 
+    return del('app/**');
+
+}
 
 
 exports.sprite = sprite;
 exports.fonts = fonts;
 exports.translateScss = translateScss;
 exports.translateJs = translateJs;
-exports.delFolder = delFolder;
 exports.imagesCompress = imagesCompress;
 
 
+exports.build =  series(cleanPublic,buildHtml,buildCss,buildJs,buldimages,buildFonts,buildSprite);
 
-exports.build =  series( cleanPublic,buildHtml,buildCss,buildJs,buldimages,buildSprite);
 
-
-exports.default = series(imagesCompress,translateHtml,translateScss,translateJs,watcher);
+exports.default = series(cleanApp,imagesCompress,translateHtml,translateScss,translateJs,fonts,sprite,watcher);

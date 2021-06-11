@@ -1,4 +1,30 @@
 .example{
 	border-radius: 7px;
-	background-color: deepblue;
+	background-color: dodgerblue;
+
+
+	color: white;
+
+font-size: 2rem;
+
 }
+.svg{
+
+}
+
+.svg.vk
+{
+fill: currentColor;
+stroke: $minorTxtColor;
+stroke-width: 2px;
+transition: all 0.3s linear;
+
+&:hover
+{
+	fill: $minorTxtColor;
+	stroke:currentColor ;
+}
+
+}
+
+
