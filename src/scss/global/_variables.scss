@@ -1,0 +1,32 @@
+@mixin font($url, $family, $weight, $style) {
+	@font-face {
+		font-display: swap;
+		font-family: $family;
+		font-style: #{$style};
+		font-weight: $weight;
+		src: url("../fonts/#{$url}.woff2") format("woff2"), url("../fonts/#{$url}.woff") format("woff");
+	}
+}
+// maxWidth-максимальная гирина контейнера по макету
+//так же используется в мексине для Font-Size
+$maxWidth: 1200;
+
+
+
+
+$bodyColor: #ffff;
+
+$mainTxtColor: #444;
+$minorTxtColor: #7676b3;
+
+
+
+$mainAccentColor: #f77600;
+$minorAccentColor: #999;
+
+$titleTxtColor: #222;
+
+$borderRadius: 5px;
+
+
+

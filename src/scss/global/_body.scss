@@ -1,0 +1,31 @@
+
+html
+{
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+
+	// background-color: $bodyColor;
+
+background: no-repeat linear-gradient(135deg, #2c3e50, rgb(44, 62, 80) 50%, #3498db) ;
+
+min-height: 100vh;
+
+// font-size: calc(1em + 1vw);
+
+font-size: clamp(16px, 4vw, 22px);
+
+// @include adaptiv-font(20, 14);
+
+font-weight: 300;
+
+}
+
+
+.contanier {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 0 0.5rem;
+}
