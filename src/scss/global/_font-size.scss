@@ -1,32 +1,26 @@
 
-@mixin adaptiv-font($pcSize, $mobSize) {
-	$addSize: $pcSize - $mobSize;
-	$maxWidth: $maxWidth - 320;
-	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+
+@mixin fontSize($minFontSize, $maxFontSize) {
+
+	$minWidth: 320;
+
+	$minWidth: $minWidth / 10;
+	$maxWidth: $maxWidth / 10;
+
+	$slope: ($maxFontSize - $minFontSize) / ($maxWidth - $minWidth);
+
+	$yAxisIntersection: -$minWidth * $slope + $minFontSize;
+
+	// font-size: min (( #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxFontSize}rem));
+
+	// font-size: min ( calc (#{$yAxisIntersection}rem + #{$slope * 100}vw) , #{$maxFontSize}rem);
+	// font-size: min( #{$minFontSize +rem} , #{$minFontSize +rem});
+
+	// font-size: min( $minFontSize + rem, 5rem );
+
+
+
+	font-size: clamp(#{$minFontSize}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxFontSize}rem);
+
 }
 
-
-
-// @mixin adaptiv-font($pcSize, $mobSize) {
-// 	$addSize: $pcSize - $mobSize;
-// 	$maxWidth: $maxWidth - 320;
-// 	font-size: calc(#{$mobSize + em} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
-// }
-
-
-// h1 {
-// 	/* font-size: 40px; */
-// 	font-weight: 900;
-// 	@include adaptiv-font(40, 24);
-// }
-
-// h2 {
-// 	@include adaptiv-font(30, 18);
-// 	font-weight: 900;
-// 	margin: 0px 0px 20px 0px;
-// }
-// p {
-// 	margin: 0px 0px 20px 0px;
-// 	line-height: calc(32 / 18);
-// 	@include adaptiv-font(18, 14);
-// }

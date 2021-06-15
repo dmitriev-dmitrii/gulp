@@ -5,24 +5,34 @@ html
   font-size: 62.5%;
 }
 
+$a:2;
 body {
 
 	// background-color: $bodyColor;
 
-background: no-repeat linear-gradient(135deg, #2c3e50, rgb(44, 62, 80) 50%, #3498db) ;
+	// https://xgkft.csb.app/
 
+background: no-repeat $bodyColor ;
+
+color: $mainTxtColor;
 min-height: 100vh;
 
-// font-size: calc(1em + 1vw);
 
-font-size: clamp(16px, 4vw, 22px);
-
-// @include adaptiv-font(20, 14);
-
-font-weight: 300;
+@include fontSize( 1.6 , 5);
 
 }
 
+h1
+{
+	font-weight: bold;
+	text-align: center;
+text-shadow: 0 0 2px;
+
+	&::before
+	{
+content: 'current font size : ';
+	}
+}
 
 .contanier {
 	max-width: 1600px;

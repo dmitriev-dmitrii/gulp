@@ -7,21 +7,24 @@
 		src: url("../fonts/#{$url}.woff2") format("woff2"), url("../fonts/#{$url}.woff") format("woff");
 	}
 }
+
+
 // maxWidth-максимальная гирина контейнера по макету
 //так же используется в мексине для Font-Size
+
 $maxWidth: 1200;
 
 
 
+$bodyColor: linear-gradient(135deg, #2c3e50, rgb(44, 62, 80) 50%, #3498db);
 
-$bodyColor: #ffff;
 
-$mainTxtColor: #444;
+$mainTxtColor: white;
 $minorTxtColor: #7676b3;
 
 
 
-$mainAccentColor: #f77600;
+$mainAccentColor: dodgerblue;
 $minorAccentColor: #999;
 
 $titleTxtColor: #222;

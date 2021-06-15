@@ -1,13 +1,10 @@
-const abc = document.querySelector('body')
+const target = document.querySelector('h1')
 
 window.addEventListener('resize', () => {
 
-	getFontSize(abc);
+	getFontSize(target);
 	
 });
-
-
-
 
 const getFontSize = (item)=> 
 {
@@ -17,7 +14,7 @@ const getFontSize = (item)=>
 	printFontSize.textContent = compStyles.getPropertyValue('font-size') ;
 }
 
-getFontSize(abc)
+getFontSize(target)
 
 
 

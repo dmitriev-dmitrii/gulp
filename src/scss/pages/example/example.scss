@@ -1,32 +1,25 @@
 .example{
 
 border-radius: 7px;
-
+display: flex;
+justify-content: space-evenly;
+flex-direction: column;
+align-items: center;
+height: 100vh;
 }
 
-.print-font-size__wrapper
-{
-
-background-color: dodgerblue;
-color: $bodyColor;
-font-size: 5rem;
-
-}
-.print-font-size
-{
-	font-weight: bold;
-	letter-spacing: 3px;
-}
 .svg{
 
 }
+
 
 .svg.vk
 {
 fill: currentColor;
 stroke: $minorTxtColor;
 stroke-width: 2px;
-
+height: 3em;
+width: 3em;
 
 &:hover
 {
