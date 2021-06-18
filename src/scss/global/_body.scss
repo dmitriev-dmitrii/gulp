@@ -5,20 +5,21 @@ html
   font-size: 62.5%;
 }
 
-$a:2;
 body {
 
 	// background-color: $bodyColor;
 
 	// https://xgkft.csb.app/
 
-background: no-repeat $bodyColor ;
+background-color: dodgerblue ;
+
+background-color: no-repeat $bodyColor ;
 
 color: $mainTxtColor;
 min-height: 100vh;
 
-
 @include fontSize( 1.6 , 5);
+
 
 }
 

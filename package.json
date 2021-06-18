@@ -30,7 +30,8 @@
   "dependencies": {
     "del": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "svgxuse": "^1.2.6"
   },
   "browserslist": [
     "> 1%",

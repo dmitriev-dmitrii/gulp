@@ -11,16 +11,26 @@
 
 	$yAxisIntersection: -$minWidth * $slope + $minFontSize;
 
-	// font-size: min (( #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxFontSize}rem));
-
-	// font-size: min ( calc (#{$yAxisIntersection}rem + #{$slope * 100}vw) , #{$maxFontSize}rem);
-	// font-size: min( #{$minFontSize +rem} , #{$minFontSize +rem});
-
-	// font-size: min( $minFontSize + rem, 5rem );
-
-
-
-	font-size: clamp(#{$minFontSize}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxFontSize}rem);
+	font-size: #{"min(max(#{$minFontSize}rem,#{$yAxisIntersection}rem + #{$slope * 100}vw),#{$maxFontSize}rem)"};
 
 }
+
+
+// @function FS($minFontSize, $maxFontSize) 
+// {
+
+// 	$minWidth: 320;
+
+// 	$minWidth: $minWidth / 10;
+// 	$maxWidth: $maxWidth / 10;
+
+// 	$slope: ($maxFontSize - $minFontSize) / ($maxWidth - $minWidth);
+
+// 	$yAxisIntersection: -$minWidth * $slope + $minFontSize;
+
+// // @return  clamp( #{$minFontSize}rem, #{$yAxisIntersection}rem + #{$slope * 100}vw, #{$maxFontSize}rem);
+
+// @return  min ((max ((#{$minFontSize}rem,#{$yAxisIntersection}rem + #{$slope * 100}vw)),#{$maxFontSize}rem));
+
+// }
 
