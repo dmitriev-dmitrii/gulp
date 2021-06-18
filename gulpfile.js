@@ -89,6 +89,18 @@ const sprite = () => {
 
 const buildSprite = () => {
 
+    return src('src/img/svg/*.svg')
+
+    .pipe(svgSprite({
+        mode: {
+            stack: {
+                sprite: '../sprite.svg'
+                
+            },
+        }
+    }))
+    .pipe(dest('public/img/svg'))
+
 }
 
 // минификаия картинок
