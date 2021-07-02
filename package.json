@@ -28,6 +28,7 @@
     "gulp-w3c-html-validator": "^2.0.1"
   },
   "dependencies": {
+    "css-mqpacker": "^7.0.0",
     "del": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-uglify": "^3.0.2",
