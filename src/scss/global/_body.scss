@@ -1,42 +1,24 @@
 
 html
 {
-  scroll-behavior: smooth;
-  font-size: 62.5%;
+scroll-behavior: smooth;
+font-size: 62.5%;
 }
 
 body {
 
-	// background-color: $bodyColor;
-
-	// https://xgkft.csb.app/
-
-background-color: dodgerblue ;
-
-background-color: no-repeat $bodyColor ;
-
+background-color: $bodyColor;
 color: $mainTxtColor;
 min-height: 100vh;
 
-@include fontSize( 1.6 , 5);
-
-
-}
-
-h1
-{
-	font-weight: bold;
-	text-align: center;
-text-shadow: 0 0 2px;
-
-	&::before
-	{
-content: 'current font size : ';
-	}
 }
 
 .contanier {
-	max-width: 1600px;
+	max-width: $maxWidth;
 	margin: 0 auto;
 	padding: 0 0.5rem;
+
+	@include fontSize( 1.6 , 2);
+
 }
+

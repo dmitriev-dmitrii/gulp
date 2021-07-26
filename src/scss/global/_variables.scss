@@ -8,22 +8,42 @@
 	}
 }
 
-// maxWidth-максимальная гирина контейнера по макету
-// так же используется в мексине для Font-Size
+// maxWidth-максимальная гирина контейнера по макету, так же используется в мексине для Font-Size
+$maxWidth: 1400;
 
-$maxWidth: 1200;
+html{
+--main-text-color: black;
+--minor-text-Color: #7676b3;
 
-$bodyColor: linear-gradient(135deg, #2c3e50, rgb(44, 62, 80) 50%, #3498db);
+--main-accent-Color: dodgerblue;
+--minor-accent-Color: dodgerblue;
 
-$mainTxtColor: white;
-$minorTxtColor: #7676b3;
+--body-color:white;
+}
 
-$mainAccentColor: dodgerblue;
-$minorAccentColor: #999;
+html[data-theme="dark"] {
+	--main-text-color: #c9d1d9;
+	--minor-text-Color: #c9d1d9;
+	
+	--main-accent-Color: dodgerblue;
+	--minor-accent-Color: dodgerblue;
+	
+	--body-color:#0d1117;
+}
 
-$titleTxtColor: #222;
+$errorColor: #FF0033;
+$succesColor: #39d353;
 
-$borderRadius: 5px;
+$bodyColor: var(--body-color);
+
+$mainTxtColor: var(--main-text-color);
+$minorTxtColor: var(--minor-text-color);
+
+$mainAccentColor: var(--main-accent-color);
+$minorAccentColor:  var(--minor-accent-color);
+
+
+
 
 
 
