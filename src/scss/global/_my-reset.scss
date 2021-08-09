@@ -1,9 +1,7 @@
 * {
 	box-sizing: border-box;
-	transition:  0.1s ;
 	&::before,
 	&::after {
-		transition: 0.1s ;
 		box-sizing: border-box;
 	}
 }
@@ -54,13 +52,13 @@ a {
 
 	color: currentColor;
 	text-decoration: none;
-
 }
 
 input::-webkit-input-placeholder       {opacity: 1; transition: opacity 0.2s ease;}
 input::-moz-placeholder                {opacity: 1; transition: opacity 0.2s ease;}
 input:-moz-placeholder                 {opacity: 1; transition: opacity 0.2s ease;}
 input:-ms-input-placeholder            {opacity: 1; transition: opacity 0.2s ease;}
+
 input:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.2s ease;}
 input:focus::-moz-placeholder          {opacity: 0; transition: opacity 0.2s ease;}
 input:focus:-moz-placeholder           {opacity: 0; transition: opacity 0.2s ease;}
