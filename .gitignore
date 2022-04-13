@@ -1,7 +1,2 @@
-
-node_modules/
-app/
-public/
-package.lock.json
-package-lock.json
-
+node_modules
+.vscode
